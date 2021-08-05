@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 17:23:00 by ericard           #+#    #+#             */
-/*   Updated: 2021/08/03 14:59:58 by ericard          ###   ########.fr       */
+/*   Updated: 2021/08/05 14:28:13 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@
 # include <stdlib.h>
 # include <stdio.h>
 
+# define ACT_FORK 1
+# define ACT_EAT 2
+# define ACT_SLEEP 3
+# define ACT_THINK 4
+# define ACT_DIED 5
+
+# define ARGUMENT 1
+
 typedef struct	s_philo
 {
 	int		num_philos;
@@ -27,5 +35,9 @@ typedef struct	s_philo
 	int		num_eat;
 }				t_philo;	
 
+int		ft_atoi(const char *str);
+int		init(t_philo *philo, int ac, char **av);
+void	print_message(int nb_philo, t_philo *philo, int action);
+int		ft_error(int error);
 
 #endif
