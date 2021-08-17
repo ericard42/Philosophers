@@ -29,7 +29,7 @@ OBJS	=	$(SRCS:.c=.o)
 all		:	$(NAME)
 
 $(NAME)	:	$(OBJS) $(INCLUDE)
-			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+			$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -lpthread
 
 clean	:
 			rm -rf $(OBJS)
