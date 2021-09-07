@@ -12,16 +12,16 @@
 
 #include "philosophers.h"
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	int	ret;
 
 	ret = 0;
-	t_philo	philo;
+	t_frame	frame;
 
 	if (ac < 5 || ac > 6)
 		return (ft_error(ARGUMENT));
-	if (ret = init(&philo, ac, av) != 0)
-		return (ret);
+	if (ret = init(&frame, ac, av) != 0)
+		return (ft_error(ret));
 	return (1);
 }
