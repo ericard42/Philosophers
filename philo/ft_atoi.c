@@ -20,7 +20,7 @@ static int	overflow(long int neg)
 		return (0);
 }
 
-int			ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	long int	nbr;
 	long int	neg;
