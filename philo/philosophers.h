@@ -26,15 +26,22 @@
 
 # define ARGUMENT 1
 
-typedef struct	s_p
+typedef struct	s_philo
+{
+	int		position;
+	int		lfork;
+	int		rfork;
+}				t_philo
 
 typedef struct	s_frame
 {
-	int		num_philos;
-	int		time_to_die;
-	int		time_to_eat;
-	int		time_to_sleep;
-	int		num_eat;
+	int					num_philos;
+	int					time_to_die;
+	int					time_to_eat;
+	int					time_to_sleep;
+	int					num_eat;
+	pthread_mutex_t		*forks;
+	struct s_philo		*philos;
 }				t_frame;	
 
 int		ft_atoi(const char *str);
