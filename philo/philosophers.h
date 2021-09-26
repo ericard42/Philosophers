@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ericard@student.42.fr <ericard>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 17:23:00 by ericard           #+#    #+#             */
-/*   Updated: 2021/08/05 14:28:13 by ericard          ###   ########.fr       */
+/*   Updated: 2021/09/26 16:21:32 by ericard@stu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct	s_philo
 	int		position;
 	int		lfork;
 	int		rfork;
-}				t_philo
+}				t_philo;
 
 typedef struct	s_frame
 {
@@ -40,6 +40,7 @@ typedef struct	s_frame
 	int					time_to_eat;
 	int					time_to_sleep;
 	int					num_eat;
+	pthread_t			*thread_philo;
 	pthread_mutex_t		*forks;
 	struct s_philo		*philos;
 }				t_frame;	

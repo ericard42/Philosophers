@@ -1,11 +1,11 @@
 #include "philosophers.h"
 
-void	print_message(int nb_philo, t_philo *philo, int action)
+void	print_message(int nb_philo, t_frame *frame, int action)
 {
 	int	time;
 
 	time = 0;
-	philo->num_eat = -1;
+	frame->num_eat = -1;
 	if (action == ACT_FORK)
 		printf("%d\t%d as taken a fork\n", time, nb_philo);
 	if (action == ACT_EAT)

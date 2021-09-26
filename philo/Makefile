@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ericard <ericard@student.42.fr>            +#+  +:+       +#+         #
+#    By: ericard@student.42.fr <ericard>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/28 17:22:57 by ericard           #+#    #+#              #
-#    Updated: 2021/08/05 13:48:10 by ericard          ###   ########.fr        #
+#    Updated: 2021/09/26 16:12:08 by ericard@stu      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS	=	main.c \
 			init.c \
 			messages.c \
 			errors.c \
+			life.c \
 
 OBJS	=	$(SRCS:.c=.o)
 

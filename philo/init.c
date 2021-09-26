@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ericard@student.42.fr <ericard>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 10:44:08 by ericard           #+#    #+#             */
-/*   Updated: 2021/08/05 14:27:59 by ericard          ###   ########.fr       */
+/*   Updated: 2021/09/26 16:22:31 by ericard@stu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 int	init_philo(t_frame *frame)
 {
 	int	i;
+
+	i = 0;
 	while (i < frame->num_philos)
 	{
-		frame->philos[i].position = i;
+		frame->philos[i].position = i + 1;
 		frame->philos[i].lfork = i;
 		if (i + 1 == frame->num_philos)
 			frame->philos[i].rfork = 0;
@@ -25,6 +27,7 @@ int	init_philo(t_frame *frame)
 			frame->philos[i].rfork = i + 1;
 		i++;
 	}
+	return (0);
 }
 
 int	init(t_frame *frame, int ac, char **av)
@@ -45,6 +48,9 @@ int	init(t_frame *frame, int ac, char **av)
 	}
 	else
 		frame->num_eat = -1;
+	frame->thread_philo = malloc(sizeof(*(frame->thread_philo)) * frame->num_philos);
+	if (!frame->thread_philo)
+		return (-1);
 	frame->forks = malloc(sizeof(*(frame->forks)) * frame->num_philos);
 	if (!frame->forks)
 		return (-1);
