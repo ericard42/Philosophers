@@ -15,20 +15,34 @@
 int	main(int ac, char **av)
 {
 	int	ret;
+	void *philo;
 
 	ret = 0;
-	t_frame	frame;
+	t_frame	*frame;
 
+	frame = malloc(sizeof(t_frame));
+	if (!frame)
+		return (ft_error(MALLOC));
 	if (ac < 5 || ac > 6)
 		return (ft_error(ARGUMENT));
-	if ((ret = init(&frame, ac, av)) != 0)
+	if ((ret = init(frame, ac, av)) != 0)
 		return (ft_error(ret));
 	int i;
 
 	i = 0;
-	while (i < frame.num_philos)
+	while (i < frame->num_philos)
 	{
-		printf("%d, %d, %d\n", frame.philos[i].position, frame.philos[i].lfork, frame.philos[i].rfork);
+		philo = (void *)&frame->philos[i];
+		ret = pthread_create(&frame->thread_philo[i], NULL, &routine, philo);
+		if (ret)
+			return (ft_error(PTHREAD));
+		//pthread_detach(frame->thread_philo[i]);
+		i++;
+	}
+	i = 0;
+	while (i < frame->num_philos)
+	{
+		pthread_join(frame->thread_philo[i], NULL);
 		i++;
 	}
 	return (1);

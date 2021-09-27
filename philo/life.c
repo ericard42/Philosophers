@@ -12,3 +12,11 @@
 
 #include "philosophers.h"
 
+void *routine(void *p_data)
+{
+	t_philo		*philo;
+
+	philo = (t_philo *)p_data;
+	printf("%d, %d, %d\n", philo->position, philo->lfork, philo->rfork);
+	return NULL;
+}

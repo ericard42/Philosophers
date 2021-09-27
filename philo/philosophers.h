@@ -25,6 +25,8 @@
 # define ACT_DIED 5
 
 # define ARGUMENT 1
+# define MALLOC 2
+# define PTHREAD 3
 
 typedef struct	s_philo
 {
@@ -49,5 +51,6 @@ int		ft_atoi(const char *str);
 int		init(t_frame *philo, int ac, char **av);
 void	print_message(int nb_philo, t_frame *philo, int action);
 int		ft_error(int error);
+void	*routine(void *p_data);
 
 #endif

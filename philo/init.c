@@ -50,10 +50,10 @@ int	init(t_frame *frame, int ac, char **av)
 		frame->num_eat = -1;
 	frame->thread_philo = malloc(sizeof(*(frame->thread_philo)) * frame->num_philos);
 	if (!frame->thread_philo)
-		return (-1);
+		return (MALLOC);
 	frame->forks = malloc(sizeof(*(frame->forks)) * frame->num_philos);
 	if (!frame->forks)
-		return (-1);
+		return (MALLOC);
 	i = 0;
 	while (i < frame->num_philos)
 	{
@@ -62,7 +62,7 @@ int	init(t_frame *frame, int ac, char **av)
 	}
 	frame->philos = malloc(sizeof(*(frame->philos)) * frame->num_philos);
 	if (!frame->philos)
-		return (-1);
+		return (MALLOC);
 	init_philo(frame);
 	return (0);
 }

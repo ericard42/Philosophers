@@ -15,6 +15,10 @@
 int		ft_error(int error)
 {
 	if (error == ARGUMENT)
-		printf("Error : Wrong arguments");
+		printf("Error : Wrong arguments\n");
+	if (error == MALLOC)
+		printf("Error : Malloc crashed\n");
+	if (error == PTHREAD)
+		printf("Error : Pthread crashed\n");
 	return (1);
 }
