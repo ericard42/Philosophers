@@ -36,7 +36,6 @@ int	main(int ac, char **av)
 		ret = pthread_create(&frame->thread_philo[i], NULL, &routine, philo);
 		if (ret)
 			return (ft_error(PTHREAD));
-		//pthread_detach(frame->thread_philo[i]);
 		i++;
 	}
 	i = 0;

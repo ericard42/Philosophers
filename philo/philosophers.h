@@ -30,9 +30,10 @@
 
 typedef struct	s_philo
 {
-	int		position;
-	int		lfork;
-	int		rfork;
+	int				position;
+	int				lfork;
+	int				rfork;
+	struct s_frame	*frame;
 }				t_philo;
 
 typedef struct	s_frame

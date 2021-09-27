@@ -19,6 +19,11 @@ int	init_philo(t_frame *frame)
 	i = 0;
 	while (i < frame->num_philos)
 	{
+		frame->philos[i].frame = malloc(sizeof(t_frame));
+		if (!frame->philos[i].frame)
+			return (MALLOC);
+		frame->philos[i].frame = frame;
+		printf("%d", frame->philos[i].frame->time_to_die);
 		frame->philos[i].position = i + 1;
 		frame->philos[i].lfork = i;
 		if (i + 1 == frame->num_philos)
@@ -63,6 +68,7 @@ int	init(t_frame *frame, int ac, char **av)
 	frame->philos = malloc(sizeof(*(frame->philos)) * frame->num_philos);
 	if (!frame->philos)
 		return (MALLOC);
-	init_philo(frame);
+	if (init_philo(frame) == MALLOC)
+		return (MALLOC);
 	return (0);
 }
