@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 16:11:47 by ericard@stu       #+#    #+#             */
-/*   Updated: 2021/09/28 10:07:26 by ericard          ###   ########.fr       */
+/*   Updated: 2021/09/28 16:23:33 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void *routine(void *p_data)
 		print_message(philo->position, philo->frame, ACT_FORK);
 		print_message(philo->position, philo->frame, ACT_FORK);
 		print_message(philo->position, philo->frame, ACT_EAT);
-		usleep(philo->frame->time_to_eat);
+		p_wait(philo->frame->time_to_eat);
 		print_message(philo->position, philo->frame, ACT_SLEEP);
-		usleep(philo->frame->time_to_sleep);
+		p_wait(philo->frame->time_to_sleep);
 		print_message(philo->position, philo->frame, ACT_THINK);
 		i++;
 	}

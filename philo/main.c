@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 17:22:53 by ericard           #+#    #+#             */
-/*   Updated: 2021/09/28 09:44:52 by ericard          ###   ########.fr       */
+/*   Updated: 2021/09/28 16:28:11 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	main(int ac, char **av)
 {
-	int	ret;
-	void *philo;
-
-	ret = 0;
+	int		ret;
+	void	*philo;
+	int 	i;
 	t_frame	*frame;
 
+	ret = 0;
 	frame = malloc(sizeof(t_frame));
 	if (!frame)
 		return (ft_error(MALLOC));
@@ -27,8 +27,6 @@ int	main(int ac, char **av)
 		return (ft_error(ARGUMENT));
 	if ((ret = init(frame, ac, av)) != 0)
 		return (ft_error(ret));
-	int i;
-
 	i = 0;
 	while (i < frame->num_philos)
 	{

@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 17:23:00 by ericard           #+#    #+#             */
-/*   Updated: 2021/09/28 10:37:23 by ericard          ###   ########.fr       */
+/*   Updated: 2021/09/28 16:19:11 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <pthread.h>
 # include <stdlib.h>
 # include <stdio.h>
+#include <sys/time.h>
 
 # define ACT_FORK 1
 # define ACT_EAT 2
@@ -33,27 +34,30 @@ typedef struct	s_philo
 	int				position;
 	int				lfork;
 	int				rfork;
-	int				last_time_eat;
+	unsigned int	last_time_eat;
 	struct s_frame	*frame;
 }				t_philo;
 
 typedef struct	s_frame
 {
 	int					num_philos;
-	int					time_to_die;
-	int					time_to_eat;
-	int					time_to_sleep;
+	unsigned int		time_to_die;
+	unsigned int		time_to_eat;
+	unsigned int		time_to_sleep;
 	int					num_eat;
 	int					philo_die;
+	unsigned int		start_time;
 	pthread_t			*thread_philo;
 	pthread_mutex_t		*forks;
 	struct s_philo		*philos;
 }				t_frame;	
 
-int		ft_atoi(const char *str);
-int		init(t_frame *philo, int ac, char **av);
-void	print_message(int nb_philo, t_frame *philo, int action);
-int		ft_error(int error);
-void	*routine(void *p_data);
+int				ft_atoi(const char *str);
+int				init(t_frame *philo, int ac, char **av);
+void			print_message(int nb_philo, t_frame *philo, int action);
+int				ft_error(int error);
+void			*routine(void *p_data);
+unsigned int	g_time(void);
+void			p_wait(unsigned int time);
 
 #endif

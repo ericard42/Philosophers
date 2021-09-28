@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 10:44:08 by ericard           #+#    #+#             */
-/*   Updated: 2021/09/28 10:38:24 by ericard          ###   ########.fr       */
+/*   Updated: 2021/09/28 16:22:10 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	init(t_frame *frame, int ac, char **av)
 {
 	int i;
 
+	frame->start_time = g_time();
 	frame->num_philos = ft_atoi(av[1]);
 	frame->time_to_die = ft_atoi(av[2]);
 	frame->time_to_eat = ft_atoi(av[3]);
