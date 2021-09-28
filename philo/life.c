@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   life.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ericard@student.42.fr <ericard>            +#+  +:+       +#+        */
+/*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 16:11:47 by ericard@stu       #+#    #+#             */
-/*   Updated: 2021/09/26 16:12:02 by ericard@stu      ###   ########.fr       */
+/*   Updated: 2021/09/28 10:07:26 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,19 @@
 void *routine(void *p_data)
 {
 	t_philo		*philo;
+	int i = 0;
 
 	philo = (t_philo *)p_data;
-	printf("%d", philo->frame->time_to_die);
-	philo->frame->time_to_die++;
+	while (i < 5)
+	{
+		print_message(philo->position, philo->frame, ACT_FORK);
+		print_message(philo->position, philo->frame, ACT_FORK);
+		print_message(philo->position, philo->frame, ACT_EAT);
+		usleep(philo->frame->time_to_eat);
+		print_message(philo->position, philo->frame, ACT_SLEEP);
+		usleep(philo->frame->time_to_sleep);
+		print_message(philo->position, philo->frame, ACT_THINK);
+		i++;
+	}
 	return NULL;
 }

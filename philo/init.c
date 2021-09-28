@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ericard@student.42.fr <ericard>            +#+  +:+       +#+        */
+/*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 10:44:08 by ericard           #+#    #+#             */
-/*   Updated: 2021/09/26 16:22:31 by ericard@stu      ###   ########.fr       */
+/*   Updated: 2021/09/28 09:42:43 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	init_philo(t_frame *frame)
 		if (!frame->philos[i].frame)
 			return (MALLOC);
 		frame->philos[i].frame = frame;
-		printf("%d", frame->philos[i].frame->time_to_die);
 		frame->philos[i].position = i + 1;
 		frame->philos[i].lfork = i;
 		if (i + 1 == frame->num_philos)
