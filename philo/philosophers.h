@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 17:23:00 by ericard           #+#    #+#             */
-/*   Updated: 2021/09/28 16:19:11 by ericard          ###   ########.fr       */
+/*   Updated: 2021/09/28 17:47:56 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,7 @@ int				ft_error(int error);
 void			*routine(void *p_data);
 unsigned int	g_time(void);
 void			p_wait(unsigned int time);
+void			take_fork(t_philo *philo);
+void			drop_fork(t_philo *philo);
 
 #endif

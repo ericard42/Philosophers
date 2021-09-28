@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 16:11:47 by ericard@stu       #+#    #+#             */
-/*   Updated: 2021/09/28 16:23:33 by ericard          ###   ########.fr       */
+/*   Updated: 2021/09/28 17:48:09 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@ void *routine(void *p_data)
 	philo = (t_philo *)p_data;
 	while (i < 5)
 	{
-		print_message(philo->position, philo->frame, ACT_FORK);
-		print_message(philo->position, philo->frame, ACT_FORK);
+		if (i == 0 && (philo->position % 2) != 0)
+			p_wait(20);
+		take_fork(philo);
 		print_message(philo->position, philo->frame, ACT_EAT);
 		p_wait(philo->frame->time_to_eat);
+		drop_fork(philo);
 		print_message(philo->position, philo->frame, ACT_SLEEP);
 		p_wait(philo->frame->time_to_sleep);
 		print_message(philo->position, philo->frame, ACT_THINK);

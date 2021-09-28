@@ -6,7 +6,7 @@
 #    By: ericard <ericard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/28 17:22:57 by ericard           #+#    #+#              #
-#    Updated: 2021/09/28 16:12:25 by ericard          ###   ########.fr        #
+#    Updated: 2021/09/28 17:41:45 by ericard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS	=	main.c \
 			errors.c \
 			life.c \
 			time.c \
+			forks.c \
 			
 OBJS	=	$(SRCS:.c=.o)
 
