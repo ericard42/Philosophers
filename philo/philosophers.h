@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 17:23:00 by ericard           #+#    #+#             */
-/*   Updated: 2021/09/28 17:47:56 by ericard          ###   ########.fr       */
+/*   Updated: 2021/09/30 18:32:21 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct	s_frame
 	int					philo_die;
 	unsigned int		start_time;
 	pthread_t			*thread_philo;
+	pthread_t			dead;
 	pthread_mutex_t		*forks;
 	struct s_philo		*philos;
 }				t_frame;	
@@ -61,5 +62,6 @@ unsigned int	g_time(void);
 void			p_wait(unsigned int time);
 void			take_fork(t_philo *philo);
 void			drop_fork(t_philo *philo);
+void			*time_to_die(void *p_data);
 
 #endif

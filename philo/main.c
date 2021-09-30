@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 17:22:53 by ericard           #+#    #+#             */
-/*   Updated: 2021/09/28 16:28:11 by ericard          ###   ########.fr       */
+/*   Updated: 2021/09/30 18:31:11 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	main(int ac, char **av)
 	int 	i;
 	t_frame	*frame;
 
-	ret = 0;
+	ret = 0; 
+	if (ac < 5 || ac > 6)
+		return (ft_error(ARGUMENT));
 	frame = malloc(sizeof(t_frame));
 	if (!frame)
 		return (ft_error(MALLOC));
-	if (ac < 5 || ac > 6)
-		return (ft_error(ARGUMENT));
 	if ((ret = init(frame, ac, av)) != 0)
 		return (ft_error(ret));
 	i = 0;

@@ -6,11 +6,30 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 16:11:59 by ericard           #+#    #+#             */
-/*   Updated: 2021/09/28 16:17:26 by ericard          ###   ########.fr       */
+/*   Updated: 2021/09/30 18:33:02 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+/*void	*time_to_die(void *p_data)
+{
+	t_philo			*philo;
+	unsigned int	end_time;
+	unsigned int	last_time_eat_b;
+
+	philo = (t_philo *)p_data;
+	last_time_eat_b = philo->last_time_eat;
+	end_time = philo->last_time_eat + philo->frame->time_to_die;
+	while (g_time() < end_time)
+		usleep(1000);
+	if (last_time_eat_b == philo->last_time_eat)
+	{
+		print_message(philo->position, philo->frame, ACT_DIED);
+		philo->frame->philo_die = 1;
+	}
+	return NULL;
+}*/
 
 unsigned int	g_time(void)
 {
