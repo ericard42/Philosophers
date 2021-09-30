@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 17:23:00 by ericard           #+#    #+#             */
-/*   Updated: 2021/09/30 18:32:21 by ericard          ###   ########.fr       */
+/*   Updated: 2021/09/30 19:12:03 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,13 @@ typedef struct	s_frame
 int				ft_atoi(const char *str);
 int				init(t_frame *philo, int ac, char **av);
 void			print_message(int nb_philo, t_frame *philo, int action);
-int				ft_error(int error);
+int				ft_error(int error, t_frame *frame);
 void			*routine(void *p_data);
 unsigned int	g_time(void);
 void			p_wait(unsigned int time);
 void			take_fork(t_philo *philo);
 void			drop_fork(t_philo *philo);
 void			*time_to_die(void *p_data);
+int				ft_close(t_frame *frame);
 
 #endif

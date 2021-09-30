@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   close.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/05 11:21:34 by ericard           #+#    #+#             */
-/*   Updated: 2021/09/30 19:11:54 by ericard          ###   ########.fr       */
+/*   Created: 2021/09/30 19:04:44 by ericard           #+#    #+#             */
+/*   Updated: 2021/09/30 19:12:21 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-int		ft_error(int error, t_frame *frame)
+int		ft_close(t_frame *frame)
 {
-	if (error == ARGUMENT)
-		printf("Error : Wrong arguments\n");
-	if (error == MALLOC)
-		printf("Error : Malloc crashed\n");
-	if (error == PTHREAD)
-		printf("Error : Pthread crashed\n");
-	ft_close(frame);
-	return (1);
+	int	i;
+
+	i = 0;
+	while (i < frame->num_philos)
+	{
+		pthread_mutex_destroy(&frame->forks[i]);
+		i++;
+	}
+	free(frame->forks);
+	free(frame->thread_philo);
+	free(frame->philos);
+	free(frame);
+	return (0);
 }

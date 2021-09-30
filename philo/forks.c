@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 13:53:14 by ericard           #+#    #+#             */
-/*   Updated: 2021/09/30 17:48:49 by ericard          ###   ########.fr       */
+/*   Updated: 2021/09/30 18:59:44 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	take_fork(t_philo *philo)
 	pthread_mutex_lock(&philo->frame->forks[philo->rfork]);
 	if (philo->frame->philo_die == 1)
 	{	
+		pthread_mutex_unlock(&philo->frame->forks[philo->lfork]);
 		pthread_mutex_unlock(&philo->frame->forks[philo->rfork]);
 		return ;
 	}

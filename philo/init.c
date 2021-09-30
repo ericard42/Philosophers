@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 10:44:08 by ericard           #+#    #+#             */
-/*   Updated: 2021/09/30 18:25:20 by ericard          ###   ########.fr       */
+/*   Updated: 2021/09/30 19:10:11 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@ int	init_philo(t_frame *frame)
 	i = 0;
 	while (i < frame->num_philos)
 	{
-		frame->philos[i].frame = malloc(sizeof(t_frame));
-		if (!frame->philos[i].frame)
-			return (MALLOC);
 		frame->philos[i].frame = frame;
 		frame->philos[i].last_time_eat = 0;
 		frame->philos[i].position = i + 1;
@@ -70,7 +67,6 @@ int	init(t_frame *frame, int ac, char **av)
 	frame->philos = malloc(sizeof(*(frame->philos)) * frame->num_philos);
 	if (!frame->philos)
 		return (MALLOC);
-	if (init_philo(frame) == MALLOC)
-		return (MALLOC);
+	init_philo(frame);
 	return (0);
 }
