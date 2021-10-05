@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ericard@student.42.fr <ericard>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 10:44:08 by ericard           #+#    #+#             */
-/*   Updated: 2021/10/05 09:12:17 by ericard          ###   ########.fr       */
+/*   Updated: 2021/10/05 17:53:12 by ericard@stu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,11 @@ int	init(t_frame *frame, int ac, char **av)
 {
 	int i;
 
-	frame->start_time = g_time();
 	frame->num_philos = ft_atoi(av[1]);
 	frame->time_to_die = ft_atoi(av[2]);
 	frame->time_to_eat = ft_atoi(av[3]);
 	frame->time_to_sleep = ft_atoi(av[4]);
-	if (frame->num_philos < 2 || frame->time_to_die < 0 || frame->time_to_eat < 0 || frame->time_to_sleep < 0)
+	if (frame->num_philos <= 0 || frame->time_to_die < 0 || frame->time_to_eat < 0 || frame->time_to_sleep < 0)
 		return (ARGUMENT);
 	if (ac == 6)
 	{
@@ -67,6 +66,7 @@ int	init(t_frame *frame, int ac, char **av)
 	frame->philos = malloc(sizeof(*(frame->philos)) * frame->num_philos);
 	if (!frame->philos)
 		return (MALLOC);
+	frame->start_time = g_time();
 	init_philo(frame);
 	return (0);
 }
