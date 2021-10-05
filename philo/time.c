@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 16:11:59 by ericard           #+#    #+#             */
-/*   Updated: 2021/09/30 19:24:07 by ericard          ###   ########.fr       */
+/*   Updated: 2021/10/05 09:12:55 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@ void	*time_to_die(void *p_data)
 
 	philo = (t_philo *)p_data;
 	last_time_eat_b = philo->last_time_eat;
-	end_time = philo->last_time_eat + philo->frame->time_to_die;
-	printf("WAITING %d\n", philo->position);
+	end_time = last_time_eat_b + philo->frame->time_to_die;
 	while (g_time() < end_time)
+	{
+		if (philo->frame->dead == 1 || last_time_eat_b != philo->last_time_eat)
+			return NULL ;
 		usleep(1000);
-	printf("DONE WAITING %d\n", philo->position);
+	}
 	if (last_time_eat_b == philo->last_time_eat && philo->frame->philo_die == 0)
 	{
 		print_message(philo->position, philo->frame, ACT_DIED);

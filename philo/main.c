@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 17:22:53 by ericard           #+#    #+#             */
-/*   Updated: 2021/09/30 19:13:27 by ericard          ###   ########.fr       */
+/*   Updated: 2021/10/05 09:56:32 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ int	main(int ac, char **av)
 		return (ft_error(MALLOC, frame));
 	ret = 0;
 	if (ac < 5 || ac > 6)
-		return (ft_error(ARGUMENT, frame));
+	{
+		printf("Error : Wrong arguments\n");
+		free(frame);
+		return (0);
+	}
 	if ((ret = init(frame, ac, av)) != 0)
 		return (ft_error(ret, frame));
 	i = 0;

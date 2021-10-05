@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 10:44:08 by ericard           #+#    #+#             */
-/*   Updated: 2021/09/30 19:10:11 by ericard          ###   ########.fr       */
+/*   Updated: 2021/10/05 09:12:17 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	init_philo(t_frame *frame)
 	while (i < frame->num_philos)
 	{
 		frame->philos[i].frame = frame;
-		frame->philos[i].last_time_eat = 0;
+		frame->philos[i].last_time_eat = frame->start_time;
 		frame->philos[i].position = i + 1;
 		frame->philos[i].lfork = i;
 		if (i + 1 == frame->num_philos)
