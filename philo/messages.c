@@ -1,18 +1,51 @@
 #include "philosophers.h"
 
-void	print_message(int nb_philo, t_frame *frame, int action)
+void	print_fork(int nb_philo, t_frame *frame)
 {
 	unsigned int	time_now;
 
+	pthread_mutex_lock(&frame->message);
 	time_now = g_time() - frame->start_time;
-	if (action == ACT_FORK)
-		printf("%d\t%d has taken a fork\n", time_now, nb_philo);
-	if (action == ACT_EAT)
-		printf("%d\t%d is eating\n", time_now, nb_philo);
-	if (action == ACT_SLEEP)
-		printf("%d\t%d is sleeping\n", time_now, nb_philo);
-	if (action == ACT_THINK)
-		printf("%d\t%d is thinking\n", time_now, nb_philo);
-	if (action == ACT_DIED)
-		printf("%d\t%d died\n", time_now, nb_philo);
+	printf("%d\t%d has taken a fork\n", time_now, nb_philo);
+	pthread_mutex_unlock(&frame->message);
+}
+
+void	print_eat(int nb_philo, t_frame *frame)
+{
+	unsigned int	time_now;
+
+	pthread_mutex_lock(&frame->message);
+	time_now = g_time() - frame->start_time;
+	printf("%d\t%d is eating\n", time_now, nb_philo);
+	pthread_mutex_unlock(&frame->message);
+}
+
+void	print_sleep(int nb_philo, t_frame *frame)
+{
+	unsigned int	time_now;
+
+	pthread_mutex_lock(&frame->message);
+	time_now = g_time() - frame->start_time;
+	printf("%d\t%d is sleeping\n", time_now, nb_philo);
+	pthread_mutex_unlock(&frame->message);
+}
+
+void	print_think(int nb_philo, t_frame *frame)
+{
+	unsigned int	time_now;
+
+	pthread_mutex_lock(&frame->message);
+	time_now = g_time() - frame->start_time;
+	printf("%d\t%d is thinking\n", time_now, nb_philo);
+	pthread_mutex_unlock(&frame->message);
+}
+
+void	print_died(int nb_philo, t_frame *frame)
+{
+	unsigned int	time_now;
+
+	pthread_mutex_lock(&frame->message);
+	time_now = g_time() - frame->start_time;
+	printf("%d\t%d died\n", time_now, nb_philo);
+	pthread_mutex_unlock(&frame->message);
 }

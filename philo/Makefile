@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ericard <ericard@student.42.fr>            +#+  +:+       +#+         #
+#    By: ericard@student.42.fr <ericard>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/28 17:22:57 by ericard           #+#    #+#              #
-#    Updated: 2021/09/30 19:11:26 by ericard          ###   ########.fr        #
+#    Updated: 2021/10/10 12:42:50 by ericard@stu      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ clean	:
 			rm -rf $(OBJS)
 
 fclean	:	clean
-			rm $(NAME)
+			rm -rf $(NAME)
 
 re		:	fclean all
 

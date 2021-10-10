@@ -6,7 +6,7 @@
 /*   By: ericard@student.42.fr <ericard>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 10:44:08 by ericard           #+#    #+#             */
-/*   Updated: 2021/10/05 18:24:13 by ericard@stu      ###   ########.fr       */
+/*   Updated: 2021/10/10 12:22:57 by ericard@stu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	init(t_frame *frame, int ac, char **av)
 	if (!frame->forks)
 		return (MALLOC);
 	i = 0;
+	pthread_mutex_init(&frame->message, NULL);
 	while (i < frame->num_philos)
 	{
 		pthread_mutex_init(&frame->forks[i], NULL);

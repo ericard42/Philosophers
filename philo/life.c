@@ -6,7 +6,7 @@
 /*   By: ericard@student.42.fr <ericard>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 16:11:47 by ericard@stu       #+#    #+#             */
-/*   Updated: 2021/10/05 18:12:32 by ericard@stu      ###   ########.fr       */
+/*   Updated: 2021/10/10 12:39:10 by ericard@stu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void *routine(void *p_data)
 		}
 		philo->last_time_eat = g_time();
 		pthread_create(&dead, NULL, &time_to_die, philo);
-		print_message(philo->position, philo->frame, ACT_EAT);
+		print_eat(philo->position, philo->frame);
 		p_wait(philo->frame->time_to_eat);
 		drop_fork(philo);
 		if (philo->frame->philo_die == 1)
@@ -46,14 +46,14 @@ void *routine(void *p_data)
 			pthread_join(dead, NULL);
 			return NULL;			
 		}
-		print_message(philo->position, philo->frame, ACT_SLEEP);
+		print_sleep(philo->position, philo->frame);
 		p_wait(philo->frame->time_to_sleep);
 		if (philo->frame->philo_die == 1)
 		{
 			pthread_join(dead, NULL);
 			return NULL;			
 		}
-		print_message(philo->position, philo->frame, ACT_THINK);
+		print_think(philo->position, philo->frame);
 		if (philo->frame->philo_die == 1)
 		{
 			pthread_join(dead, NULL);

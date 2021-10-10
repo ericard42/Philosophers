@@ -6,7 +6,7 @@
 /*   By: ericard@student.42.fr <ericard>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 13:53:14 by ericard           #+#    #+#             */
-/*   Updated: 2021/10/05 18:01:00 by ericard@stu      ###   ########.fr       */
+/*   Updated: 2021/10/10 12:39:37 by ericard@stu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	take_fork(t_philo *philo)
 		pthread_mutex_unlock(&philo->frame->forks[philo->lfork]);
 		return ;
 	}
-	print_message(philo->position, philo->frame, ACT_FORK);
+	print_fork(philo->position, philo->frame);
 	if (philo->frame->num_philos == 1)
 	{
 		while (philo->frame->philo_die != 1)
@@ -34,7 +34,7 @@ void	take_fork(t_philo *philo)
 		pthread_mutex_unlock(&philo->frame->forks[philo->rfork]);
 		return ;
 	}
-	print_message(philo->position, philo->frame, ACT_FORK);
+	print_fork(philo->position, philo->frame);
 }
 
 void	drop_fork(t_philo *philo)

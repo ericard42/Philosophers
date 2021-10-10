@@ -6,7 +6,7 @@
 /*   By: ericard@student.42.fr <ericard>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 16:11:59 by ericard           #+#    #+#             */
-/*   Updated: 2021/10/05 18:15:02 by ericard@stu      ###   ########.fr       */
+/*   Updated: 2021/10/10 12:40:01 by ericard@stu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	*time_to_die(void *p_data)
 	if (last_time_eat_b == philo->last_time_eat && philo->frame->philo_die == 0)
 	{
 		philo->frame->philo_die = 1;
-		print_message(philo->position, philo->frame, ACT_DIED);
+		print_died(philo->position, philo->frame);
 	}
 	return NULL;
 }
