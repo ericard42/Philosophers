@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ericard@student.42.fr <ericard>            +#+  +:+       +#+        */
+/*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 16:11:59 by ericard           #+#    #+#             */
-/*   Updated: 2021/10/10 12:40:01 by ericard@stu      ###   ########.fr       */
+/*   Updated: 2021/10/11 17:32:39 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*time_to_die(void *p_data)
 			return NULL ;
 		usleep(1000);
 	}
-	if (last_time_eat_b == philo->last_time_eat && philo->frame->philo_die == 0)
+	if (last_time_eat_b == philo->last_time_eat && philo->frame->philo_die == 0 && philo->last_eat == 0)
 	{
 		philo->frame->philo_die = 1;
 		print_died(philo->position, philo->frame);

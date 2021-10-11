@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ericard@student.42.fr <ericard>            +#+  +:+       +#+        */
+/*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 10:44:08 by ericard           #+#    #+#             */
-/*   Updated: 2021/10/10 12:22:57 by ericard@stu      ###   ########.fr       */
+/*   Updated: 2021/10/11 17:31:16 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	init_philo(t_frame *frame)
 		frame->philos[i].last_time_eat = frame->start_time;
 		frame->philos[i].position = i + 1;
 		frame->philos[i].lfork = i;
+		frame->philos[i].last_eat = 0;
 		if (i + 1 == frame->num_philos)
 			frame->philos[i].rfork = 0;
 		else

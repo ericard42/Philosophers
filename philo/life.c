@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   life.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ericard@student.42.fr <ericard>            +#+  +:+       +#+        */
+/*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 16:11:47 by ericard@stu       #+#    #+#             */
-/*   Updated: 2021/10/10 12:39:10 by ericard@stu      ###   ########.fr       */
+/*   Updated: 2021/10/11 17:32:54 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void *routine(void *p_data)
 	pthread_create(&dead, NULL, &time_to_die, philo);
 	while (42)
 	{
-		if (i == 1 && philo->frame->num_philos > 2 && (philo->position % 2) != 0)
+		if (i == 1 && philo->frame->num_philos >= 2 && (philo->position % 2) != 0)
 			p_wait(philo->frame->time_to_eat / 2);
 		take_fork(philo);
 		if (philo->frame->philo_die == 1)
@@ -43,6 +43,7 @@ void *routine(void *p_data)
 		}
 		if (philo->frame->num_eat != -1 && i == philo->frame->num_eat)
 		{
+			philo->last_eat = 1;
 			pthread_join(dead, NULL);
 			return NULL;			
 		}
