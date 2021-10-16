@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ericard@student.42.fr <ericard>            +#+  +:+       +#+        */
+/*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 10:40:21 by ericard           #+#    #+#             */
-/*   Updated: 2021/09/26 15:50:46 by ericard@stu      ###   ########.fr       */
+/*   Updated: 2021/10/16 10:45:45 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int			ft_atoi(const char *str)
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			neg = -1;
+			return (-1);
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
@@ -42,7 +42,10 @@ int			ft_atoi(const char *str)
 		nbr = 10 * nbr + (long int)(str[i] - 48);
 		i++;
 	}
+	if (str[i] != '\0')
+		return (-1);
 	if (nbr < 0)
 		return (overflow(neg));
 	return (nbr * neg);
 }
+

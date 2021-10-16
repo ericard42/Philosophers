@@ -6,13 +6,13 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 19:04:44 by ericard           #+#    #+#             */
-/*   Updated: 2021/10/05 10:01:52 by ericard          ###   ########.fr       */
+/*   Updated: 2021/10/16 10:39:17 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-int		ft_close(t_frame *frame)
+int	ft_close(t_frame *frame)
 {
 	int	i;
 

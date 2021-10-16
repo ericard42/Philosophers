@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 10:44:08 by ericard           #+#    #+#             */
-/*   Updated: 2021/10/11 17:31:16 by ericard          ###   ########.fr       */
+/*   Updated: 2021/10/16 11:04:35 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ int	init_philo(t_frame *frame)
 int	init(t_frame *frame, int ac, char **av)
 {
 	int i;
+	int ret;
 
+	ret = 1;
 	frame->start_time = g_time();
 	frame->num_philos = ft_atoi(av[1]);
 	frame->time_to_die = ft_atoi(av[2]);

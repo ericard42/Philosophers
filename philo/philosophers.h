@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 17:23:00 by ericard           #+#    #+#             */
-/*   Updated: 2021/10/11 17:30:47 by ericard          ###   ########.fr       */
+/*   Updated: 2021/10/16 11:04:11 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ typedef struct	s_philo
 typedef struct	s_frame
 {
 	int					num_philos;
-	unsigned int		time_to_die;
-	unsigned int		time_to_eat;
-	unsigned int		time_to_sleep;
+	long int			time_to_die;
+	long int			time_to_eat;
+	long int			time_to_sleep;
 	int					num_eat;
 	int					philo_die;
 	unsigned int		start_time;

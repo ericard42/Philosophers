@@ -6,13 +6,13 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 11:21:34 by ericard           #+#    #+#             */
-/*   Updated: 2021/09/30 19:11:54 by ericard          ###   ########.fr       */
+/*   Updated: 2021/10/16 10:39:26 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-int		ft_error(int error, t_frame *frame)
+int	ft_error(int error, t_frame *frame)
 {
 	if (error == ARGUMENT)
 		printf("Error : Wrong arguments\n");
