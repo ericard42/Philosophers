@@ -35,6 +35,8 @@ void	take_fork(t_philo *philo)
 		return ;
 	}
 	print_fork(philo->position, philo->frame);
+	if (philo->frame->philo_die == 1)
+		drop_fork(philo);
 }
 
 void	drop_fork(t_philo *philo)

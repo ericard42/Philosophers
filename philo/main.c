@@ -12,11 +12,40 @@
 
 #include "philosophers.h"
 
+static int	create_thread(t_frame *frame)
+{
+	int		i;
+	void	*philo;
+	int		ret;
+
+	i = 0;
+	ret = 0;
+	while (i < frame->num_philos)
+	{
+		philo = (void *)&frame->philos[i];
+		ret = pthread_create(&frame->thread_philo[i], NULL, &routine, philo);
+		if (ret)
+			return (PTHREAD);
+		i++;
+	}
+	return (0);
+}
+
+static void	waiting_pthread(t_frame *frame)
+{
+	int	i;
+
+	i = 0;
+	while (i < frame->num_philos)
+	{
+		pthread_join(frame->thread_philo[i], NULL);
+		i++;
+	}
+}
+
 int	main(int ac, char **av)
 {
 	int		ret;
-	void	*philo;
-	int		i;
 	t_frame	*frame;
 
 	frame = malloc(sizeof(t_frame));
@@ -32,21 +61,9 @@ int	main(int ac, char **av)
 	ret = init(frame, ac, av);
 	if (ret != 0)
 		return (ft_error(ret, frame));
-	i = 0;
-	while (i < frame->num_philos)
-	{
-		philo = (void *)&frame->philos[i];
-		ret = pthread_create(&frame->thread_philo[i], NULL, &routine, philo);
-		if (ret)
-			return (ft_error(PTHREAD, frame));
-		i++;
-	}
-	i = 0;
-	while (i < frame->num_philos)
-	{
-		pthread_join(frame->thread_philo[i], NULL);
-		i++;
-	}
+	if (create_thread(frame) != 0)
+		return (ft_error(PTHREAD, frame));
+	waiting_pthread(frame);
 	ft_close(frame);
 	return (1);
 }

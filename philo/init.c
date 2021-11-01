@@ -12,7 +12,7 @@
 
 #include "philosophers.h"
 
-int	init_philo(t_frame *frame)
+static int	init_philo(t_frame *frame)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ int	init_philo(t_frame *frame)
 	return (0);
 }
 
-int	init_args(t_frame *frame, int ac, char **av)
+static int	init_args(t_frame *frame, int ac, char **av)
 {
 	frame->start_time = g_time();
 	frame->num_philos = ft_atoi(av[1]);
