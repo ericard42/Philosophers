@@ -33,18 +33,15 @@ int	init_philo(t_frame *frame)
 	return (0);
 }
 
-int	init(t_frame *frame, int ac, char **av)
+int	init_args(t_frame *frame, int ac, char **av)
 {
-	int i;
-	int ret;
-
-	ret = 1;
 	frame->start_time = g_time();
 	frame->num_philos = ft_atoi(av[1]);
 	frame->time_to_die = ft_atoi(av[2]);
 	frame->time_to_eat = ft_atoi(av[3]);
 	frame->time_to_sleep = ft_atoi(av[4]);
-	if (frame->num_philos <= 0 || frame->time_to_die < 0 || frame->time_to_eat < 0 || frame->time_to_sleep < 0)
+	if (frame->num_philos <= 0 || frame->time_to_die < 0
+		|| frame->time_to_eat < 0 || frame->time_to_sleep < 0)
 		return (ARGUMENT);
 	if (ac == 6)
 	{
@@ -54,8 +51,18 @@ int	init(t_frame *frame, int ac, char **av)
 	}
 	else
 		frame->num_eat = -1;
+	return (0);
+}
+
+int	init(t_frame *frame, int ac, char **av)
+{
+	int	i;
+
+	if (init_args(frame, ac, av) == ARGUMENT)
+		return (ARGUMENT);
 	frame->philo_die = 0;
-	frame->thread_philo = malloc(sizeof(*(frame->thread_philo)) * frame->num_philos);
+	frame->thread_philo = malloc(sizeof(*(frame->thread_philo))
+			* frame->num_philos);
 	if (!frame->thread_philo)
 		return (MALLOC);
 	frame->forks = malloc(sizeof(*(frame->forks)) * frame->num_philos);

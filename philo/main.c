@@ -16,7 +16,7 @@ int	main(int ac, char **av)
 {
 	int		ret;
 	void	*philo;
-	int 	i;
+	int		i;
 	t_frame	*frame;
 
 	frame = malloc(sizeof(t_frame));
@@ -29,7 +29,8 @@ int	main(int ac, char **av)
 		free(frame);
 		return (0);
 	}
-	if ((ret = init(frame, ac, av)) != 0)
+	ret = init(frame, ac, av);
+	if (ret != 0)
 		return (ft_error(ret, frame));
 	i = 0;
 	while (i < frame->num_philos)

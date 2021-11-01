@@ -15,7 +15,11 @@
 int	ft_error(int error, t_frame *frame)
 {
 	if (error == ARGUMENT)
+	{
 		printf("Error : Wrong arguments\n");
+		free(frame);
+		return (0);
+	}
 	if (error == MALLOC)
 		printf("Error : Malloc crashed\n");
 	if (error == PTHREAD)

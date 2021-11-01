@@ -48,6 +48,7 @@ void	print_died(int nb_philo, t_frame *frame)
 {
 	unsigned int	time_now;
 
+	frame->philo_die = 1;
 	pthread_mutex_lock(&frame->message);
 	//time_now = g_time() - frame->philos[nb_philo - 1].last_time_eat;
 	time_now = g_time() - frame->start_time;

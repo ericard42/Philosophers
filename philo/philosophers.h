@@ -17,23 +17,25 @@
 # include <pthread.h>
 # include <stdlib.h>
 # include <stdio.h>
-#include <sys/time.h>
+# include <sys/time.h>
 
 # define ARGUMENT 1
 # define MALLOC 2
 # define PTHREAD 3
 
-typedef struct	s_philo
+typedef struct s_philo
 {
 	int				position;
 	int				lfork;
 	int				rfork;
 	unsigned int	last_time_eat;
 	int				last_eat;
+	pthread_t		dead;
+	pthread_t		dead2;
 	struct s_frame	*frame;
 }				t_philo;
 
-typedef struct	s_frame
+typedef struct s_frame
 {
 	int					num_philos;
 	long int			time_to_die;
