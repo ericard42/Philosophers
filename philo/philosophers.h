@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/28 17:23:00 by ericard           #+#    #+#             */
-/*   Updated: 2021/11/02 13:50:49 by ericard          ###   ########.fr       */
+/*   Created: 2021/11/02 14:06:07 by ericard           #+#    #+#             */
+/*   Updated: 2021/11/02 14:06:08 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,5 @@ void			print_eat(int nb_philo, t_frame *frame);
 void			print_sleep(int nb_philo, t_frame *frame);
 void			print_think(int nb_philo, t_frame *frame);
 void			print_died(int nb_philo, t_frame *frame);
-void    		ft_putstr_fd(char *str, int fd);
+void			ft_putstr_fd(char *str, int fd);
 #endif
