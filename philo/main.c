@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 17:22:53 by ericard           #+#    #+#             */
-/*   Updated: 2021/10/05 09:56:32 by ericard          ###   ########.fr       */
+/*   Updated: 2021/11/02 13:56:08 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int	main(int ac, char **av)
 	ret = 0;
 	if (ac < 5 || ac > 6)
 	{
-		printf("Error : Wrong arguments\n");
+		ft_putstr_fd("Error : Wrong arguments\n", 2);
 		free(frame);
-		return (0);
+		return (ARGUMENT);
 	}
 	ret = init(frame, ac, av);
 	if (ret != 0)
@@ -65,5 +65,5 @@ int	main(int ac, char **av)
 		return (ft_error(PTHREAD, frame));
 	waiting_pthread(frame);
 	ft_close(frame);
-	return (1);
+	return (0);
 }

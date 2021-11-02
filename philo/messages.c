@@ -68,6 +68,8 @@ void	print_died(int nb_philo, t_frame *frame)
 {
 	unsigned int	time_now;
 
+	if (frame->philo_die == 1)
+		return ;
 	frame->philo_die = 1;
 	pthread_mutex_lock(&frame->message);
 	//time_now = g_time() - frame->philos[nb_philo - 1].last_time_eat;

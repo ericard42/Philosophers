@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ericard@student.42.fr <ericard>            +#+  +:+       +#+         #
+#    By: ericard <ericard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/28 17:22:57 by ericard           #+#    #+#              #
-#    Updated: 2021/10/10 12:42:50 by ericard@stu      ###   ########.fr        #
+#    Updated: 2021/11/02 13:50:46 by ericard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS	=	main.c \
 			time.c \
 			forks.c \
 			close.c \
+			ft_putstr_fd.c \
 			
 OBJS	=	$(SRCS:.c=.o)
 

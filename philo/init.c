@@ -6,7 +6,7 @@
 /*   By: ericard <ericard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 10:44:08 by ericard           #+#    #+#             */
-/*   Updated: 2021/10/16 11:04:35 by ericard          ###   ########.fr       */
+/*   Updated: 2021/11/02 13:56:56 by ericard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ static int	init_args(t_frame *frame, int ac, char **av)
 	frame->time_to_die = ft_atoi(av[2]);
 	frame->time_to_eat = ft_atoi(av[3]);
 	frame->time_to_sleep = ft_atoi(av[4]);
-	if (frame->num_philos <= 0 || frame->time_to_die < 0
-		|| frame->time_to_eat < 0 || frame->time_to_sleep < 0)
+	if (frame->num_philos <= 0 || frame->time_to_die <= 0
+		|| frame->time_to_eat <= 0 || frame->time_to_sleep <= 0)
 		return (ARGUMENT);
 	if (ac == 6)
 	{
