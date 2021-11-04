@@ -6,7 +6,7 @@
 #    By: ericard <ericard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/28 17:22:57 by ericard           #+#    #+#              #
-#    Updated: 2021/11/02 13:50:46 by ericard          ###   ########.fr        #
+#    Updated: 2021/11/04 14:52:17 by ericard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,5 +43,8 @@ fclean	:	clean
 			rm -rf $(NAME)
 
 re		:	fclean all
+
+%.o		:	%.c
+			$(CC) ${CFLAGS} -o $@ -c $<
 
 .PHONY	:	all clean fclean re
